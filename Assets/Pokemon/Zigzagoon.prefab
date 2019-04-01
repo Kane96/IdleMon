@@ -43,8 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab0909eab3645742a1638ba90c37c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprintFront: {fileID: 21300524, guid: 7171b2b1326662b419aae965546669ad, type: 3}
+  spriteFront: {fileID: 21300524, guid: 7171b2b1326662b419aae965546669ad, type: 3}
   spriteBack: {fileID: 21300524, guid: 2bdb0011dae225a41aa0aa6498668318, type: 3}
-  baseHP: 30
-  baseAttack: 20
-  baseDefence: 20
