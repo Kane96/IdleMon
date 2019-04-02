@@ -20,19 +20,19 @@ public class Pokemon : MonoBehaviour
         return spriteBack;
     }
 
-    public int getHitPoints() {
+    public int getBaseHitPoints() {
         return baseHitPoints;
     }
 
-    public int getHitAttack() {
+    public int getBaseAttack() {
         return baseAttack;
     }
 
-    public int getHitDefence() {
+    public int getBaseDefence() {
         return baseDefence;
     }
 
-    public int getHitSpeed() {
+    public int getBaseSpeed() {
         return baseSpeed;
     }
 }

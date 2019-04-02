@@ -45,3 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteFront: {fileID: 21300524, guid: 7171b2b1326662b419aae965546669ad, type: 3}
   spriteBack: {fileID: 21300524, guid: 2bdb0011dae225a41aa0aa6498668318, type: 3}
+  baseHitPoints: 20
+  baseAttack: 20
+  baseDefence: 10
+  baseSpeed: 15

@@ -7,8 +7,14 @@ public class ActivePokemonPlayer : MonoBehaviour
     public Team team;
     public SpriteRenderer sprite;
 
+    public Pokemon active;
+
     private void Start() {
-        Pokemon active = team.GetPokemon(0);
+        active = team.GetPokemon(0);
         sprite.sprite = active.getSpriteBack();
+    }
+
+    public Pokemon GetActive() {
+        return active;
     }
 }
