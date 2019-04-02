@@ -300,8 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 2
-  player: {fileID: 0}
-  opponent: {fileID: 0}
+  player: {fileID: 726705813}
+  opponent: {fileID: 1064869500}
 --- !u!4 &184854782
 Transform:
   m_ObjectHideFlags: 0
@@ -629,6 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: {fileID: 1526220921}
   sprite: {fileID: 726705812}
+  player: 0
   healthText: {fileID: 1780190620}
 --- !u!1 &1064869497
 GameObject:
@@ -724,6 +725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: {fileID: 1526220921}
   sprite: {fileID: 1064869499}
+  player: 0
   healthText: {fileID: 1441556254}
 --- !u!1 &1176973963
 GameObject:
