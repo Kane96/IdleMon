@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActivePokemonEnemy : MonoBehaviour
+public class ActivePokemon : MonoBehaviour
 {
     public Team team;
     public SpriteRenderer sprite;
-
+    public bool player;
     public Text healthText;
 
     private Pokemon active;
