@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialised: 0
   pokemon: {fileID: 8686158791536610066, guid: aad6f59d251f47d418e139035143c6a8, type: 3}
-  level: 10
+  level: 88
   hitPoints: 0
   attack: 0
   defence: 0
