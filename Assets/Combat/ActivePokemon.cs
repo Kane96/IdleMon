@@ -27,7 +27,6 @@ public class ActivePokemon : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
-
         if (currentHitPoints - damage < 0) {
             currentHitPoints = 0;
         }

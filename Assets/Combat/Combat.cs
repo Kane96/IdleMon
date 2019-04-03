@@ -18,8 +18,26 @@ public class Combat : MonoBehaviour
     }
 
     private void AttackTarget(ActivePokemon attacker, ActivePokemon target) {
-        UniquePokemon wamps = attacker.GetActive();
-        int damage = wamps.GetAttack();
-        target.TakeDamage(damage - target.GetActive().GetDefence());
+        UniquePokemon pokemonAttacker = attacker.GetActive();
+        UniquePokemon pokemonTarget = target.GetActive();
+        int attackerLevel = pokemonAttacker.GetLevel();
+        int attackerAttackStat = pokemonAttacker.GetAttack();
+        int targetDefenceStat = pokemonTarget.GetDefence();
+
+        int damage = CalculateDamage(attackerLevel, attackerAttackStat, targetDefenceStat);
+
+        target.TakeDamage(damage);
+    }
+
+    private int CalculateDamage(int attackerLevel, int attackerAttackStat, int targetDefenceStat) {
+        int power = 40;
+
+        int damage = 0;
+        damage = (attackerLevel * 2) / 5 + 2;
+        damage *= power;
+        damage += attackerAttackStat / targetDefenceStat;
+        damage /= 50;
+        damage += 2;
+        return damage;
     }
 }

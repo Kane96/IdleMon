@@ -14,7 +14,7 @@ public class UniquePokemon : MonoBehaviour
     public int defence;
     public int speed;
 
-    void Start() {
+    void Awake() {
         if (!initialised) {
             hitPoints = GenerateStat(pokemon.GetBaseHitPoints());
             attack = GenerateStat(pokemon.GetBaseAttack());
@@ -39,6 +39,10 @@ public class UniquePokemon : MonoBehaviour
 
     public Pokemon GetPokemon() {
         return pokemon;
+    }
+
+    public int GetLevel() {
+        return level;
     }
 
     public int GetHitPoints() {
