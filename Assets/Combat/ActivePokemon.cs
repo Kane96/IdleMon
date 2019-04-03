@@ -26,18 +26,22 @@ public class ActivePokemon : MonoBehaviour
         healthText.text = currentHitPoints.ToString();
     }
 
+    public void TakeDamage(int damage) {
+
+        if (currentHitPoints - damage < 0) {
+            currentHitPoints = 0;
+        }
+        else if (currentHitPoints > 0) {
+            currentHitPoints -= damage;
+        }
+        UpdateText();
+    }
+
     private void UpdateText() {
         healthText.text = currentHitPoints.ToString();
     }
 
     public UniquePokemon GetActive() {
         return active;
-    }
-
-    public void TakeDamage(int damage) {
-        if (currentHitPoints > 0) {
-            currentHitPoints -= damage;
-            UpdateText();
-        }
     }
 }

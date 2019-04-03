@@ -22,5 +22,4 @@ public class Combat : MonoBehaviour
         int damage = wamps.GetAttack();
         target.TakeDamage(damage - target.GetActive().GetDefence());
     }
-
 }
