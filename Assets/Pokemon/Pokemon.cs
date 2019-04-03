@@ -12,27 +12,27 @@ public class Pokemon : MonoBehaviour
     public int baseDefence;
     public int baseSpeed;
 
-    public Sprite getSpriteFront() {
+    public Sprite GetSpriteFront() {
         return spriteFront;
     }
 
-    public Sprite getSpriteBack() {
+    public Sprite GetSpriteBack() {
         return spriteBack;
     }
 
-    public int getBaseHitPoints() {
+    public int GetBaseHitPoints() {
         return baseHitPoints;
     }
 
-    public int getBaseAttack() {
+    public int GetBaseAttack() {
         return baseAttack;
     }
 
-    public int getBaseDefence() {
+    public int GetBaseDefence() {
         return baseDefence;
     }
 
-    public int getBaseSpeed() {
+    public int GetBaseSpeed() {
         return baseSpeed;
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Team : MonoBehaviour
 {
-    public GameObject[] team = new GameObject[5];
+    public UniquePokemon[] team = new UniquePokemon[5];
 
-    public Pokemon GetPokemon(int slot) {
-        return team[slot].GetComponent<Pokemon>();
+    public UniquePokemon GetPokemon(int slot) {
+        return team[slot].GetComponent<UniquePokemon>();
     }
 }

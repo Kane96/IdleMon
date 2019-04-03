@@ -10,29 +10,33 @@ public class ActivePokemon : MonoBehaviour
     public bool player;
     public Text healthText;
 
-    private Pokemon active;
+    private UniquePokemon active;
 
-    private int currentHP;
+    private int currentHitPoints; 
 
     private void Start() {
         active = team.GetPokemon(0);
-        sprite.sprite = active.getSpriteFront();
-
-        currentHP = active.getBaseHitPoints();
-        healthText.text = currentHP.ToString();
+        if (player) {
+            sprite.sprite = active.GetPokemon().GetSpriteBack();
+        } else {
+            sprite.sprite = active.GetPokemon().GetSpriteFront();
+        }
+        
+        currentHitPoints = active.GetHitPoints();
+        healthText.text = currentHitPoints.ToString();
     }
 
     private void UpdateText() {
-        healthText.text = currentHP.ToString();
+        healthText.text = currentHitPoints.ToString();
     }
 
-    public Pokemon GetActive() {
+    public UniquePokemon GetActive() {
         return active;
     }
 
     public void TakeDamage(int damage) {
-        if (currentHP > 0) {
-            currentHP -= damage;
+        if (currentHitPoints > 0) {
+            currentHitPoints -= damage;
             UpdateText();
         }
     }

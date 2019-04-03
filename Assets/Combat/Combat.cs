@@ -18,9 +18,9 @@ public class Combat : MonoBehaviour
     }
 
     private void AttackTarget(ActivePokemon attacker, ActivePokemon target) {
-        Pokemon wamps = attacker.GetActive();
-        int damage = wamps.getBaseAttack();
-        target.TakeDamage(damage - target.GetActive().getBaseDefence());
+        UniquePokemon wamps = attacker.GetActive();
+        int damage = wamps.GetAttack();
+        target.TakeDamage(damage - target.GetActive().GetDefence());
     }
 
 }
