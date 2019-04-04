@@ -9,9 +9,17 @@ public class Combat : MonoBehaviour
 
     public ActivePokemon player, opponent;
 
+    private float playerSpeed;
+
+    void Start() {
+        playerSpeed = (float)player.GetActive().GetSpeed();
+        playerSpeed /= 1000;
+    }
+
     void Update() {
+        print(playerSpeed + " " + (cooldown - playerSpeed * 2) + " " + count);
         count += Time.deltaTime;
-        if (count > cooldown) {
+        if (count > cooldown - playerSpeed * 4) {
             AttackTarget(player, opponent);
             count = 0;
         }
