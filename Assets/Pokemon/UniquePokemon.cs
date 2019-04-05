@@ -32,12 +32,15 @@ public class UniquePokemon : MonoBehaviour
         return stat;
     }
 
-    public void Initialise() {
+    public void GenerateStats() {
         hitPoints = GenerateStat(pokemon.GetBaseHitPoints());
         attack = GenerateStat(pokemon.GetBaseAttack());
         defence = GenerateStat(pokemon.GetBaseDefence());
         speed = GenerateStat(pokemon.GetBaseSpeed());
+    }
 
+    public void Initialise() {
+        GenerateStats();
         initialised = true;
     }
 
