@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712926fb6af53d14593af8352430ff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 1.5
   player: {fileID: 726705813}
   opponent: {fileID: 1064869500}
 --- !u!4 &184854782
@@ -631,6 +631,7 @@ MonoBehaviour:
   sprite: {fileID: 726705812}
   player: 1
   healthText: {fileID: 1780190620}
+  currentRoute: {fileID: 0}
 --- !u!1 &1064869497
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +728,8 @@ MonoBehaviour:
   sprite: {fileID: 1064869499}
   player: 0
   healthText: {fileID: 1441556254}
+  currentRoute: {fileID: 514386870665097568, guid: ac146f8be870e0e4486ac066a87cfbed,
+    type: 3}
 --- !u!1 &1176973963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,8 +1187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialised: 0
-  pokemon: {fileID: 8686158791536610066, guid: aad6f59d251f47d418e139035143c6a8, type: 3}
-  level: 10
+  pokemon: {fileID: 8686158791536610066, guid: 9c77eb92ee4b82742aebc94f6944cd07, type: 3}
+  level: 5
   hitPoints: 0
   attack: 0
   defence: 0

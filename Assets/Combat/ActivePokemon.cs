@@ -11,20 +11,31 @@ public class ActivePokemon : MonoBehaviour
     public Text healthText;
 
     private UniquePokemon active;
+    private int currentHitPoints;
 
-    private int currentHitPoints; 
+    public SpawnPool currentRoute;
 
-    private void Start() {
-        active = team.GetPokemon(0);
+    void Start() {
+        
         if (player) {
+            active = team.GetPokemon(0);
             sprite.sprite = active.GetPokemon().GetSpriteBack();
         } else {
+            GetNewActive();
             sprite.sprite = active.GetPokemon().GetSpriteFront();
         }
         
         currentHitPoints = active.GetHitPoints();
         healthText.text = currentHitPoints.ToString();
     }
+
+    private void Update() {
+        if (currentHitPoints <= 0) {
+            GetNewActive();
+            sprite.sprite = active.GetPokemon().GetSpriteFront();
+        }
+    }
+
 
     public void TakeDamage(int damage) {
         if (currentHitPoints - damage < 0) {
@@ -42,5 +53,11 @@ public class ActivePokemon : MonoBehaviour
 
     public UniquePokemon GetActive() {
         return active;
+    }
+
+    private void GetNewActive() {
+        active = currentRoute.GetSpawn();
+        currentHitPoints = active.GetHitPoints();
+        UpdateText();
     }
 }

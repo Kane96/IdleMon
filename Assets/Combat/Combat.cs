@@ -17,7 +17,6 @@ public class Combat : MonoBehaviour
     }
 
     void Update() {
-        print(playerSpeed + " " + (cooldown - playerSpeed * 2) + " " + count);
         count += Time.deltaTime;
         if (count > cooldown - playerSpeed * 4) {
             AttackTarget(player, opponent);

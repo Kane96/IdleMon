@@ -16,12 +16,7 @@ public class UniquePokemon : MonoBehaviour
 
     void Awake() {
         if (!initialised) {
-            hitPoints = GenerateStat(pokemon.GetBaseHitPoints());
-            attack = GenerateStat(pokemon.GetBaseAttack());
-            defence = GenerateStat(pokemon.GetBaseDefence());
-            speed = GenerateStat(pokemon.GetBaseSpeed());
-
-            initialised = true;
+            Initialise();
         }
     }
 
@@ -35,6 +30,15 @@ public class UniquePokemon : MonoBehaviour
         stat += floor;
 
         return stat;
+    }
+
+    public void Initialise() {
+        hitPoints = GenerateStat(pokemon.GetBaseHitPoints());
+        attack = GenerateStat(pokemon.GetBaseAttack());
+        defence = GenerateStat(pokemon.GetBaseDefence());
+        speed = GenerateStat(pokemon.GetBaseSpeed());
+
+        initialised = true;
     }
 
     public Pokemon GetPokemon() {
@@ -59,5 +63,9 @@ public class UniquePokemon : MonoBehaviour
 
     public int GetSpeed() {
         return speed;
+    }
+
+    public void SetLevel(int newLevel) {
+        level = newLevel;
     }
 }
