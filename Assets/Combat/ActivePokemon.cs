@@ -9,6 +9,8 @@ public class ActivePokemon : MonoBehaviour
     public SpriteRenderer sprite;
     public bool player;
     public Text healthText;
+    public Text levelText;
+    public Text expText;
 
     private UniquePokemon active;
     private int currentHitPoints;
@@ -27,7 +29,7 @@ public class ActivePokemon : MonoBehaviour
         }
         
         currentHitPoints = active.GetHitPoints();
-        healthText.text = currentHitPoints.ToString();
+        UpdateText();
     }
 
     public void TakeDamage(int damage) {
@@ -42,6 +44,10 @@ public class ActivePokemon : MonoBehaviour
 
     public void UpdateText() {
         healthText.text = currentHitPoints.ToString();
+        levelText.text = active.GetLevel().ToString();
+        if (expText != null) {
+            expText.text = active.GetExpToNextLevel().ToString();
+        }
     }
 
     public UniquePokemon GetActive() {

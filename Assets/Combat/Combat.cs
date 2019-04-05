@@ -41,6 +41,7 @@ public class Combat : MonoBehaviour
             target.Faint();
             if (attacker.IsPlayer()) {
                 pokemonAttacker.GainExp(pokemonTarget.CalculateExperienceReward());
+                attacker.UpdateText();
             }
         }
     }

@@ -12,7 +12,7 @@ public class UniquePokemon : MonoBehaviour
 
     public int level;
     public int experience;
-    public int expToNextLevel;
+    public int expAtNextLevel;
 
     public int hitPoints;
     public int attack;
@@ -30,7 +30,7 @@ public class UniquePokemon : MonoBehaviour
     }
 
     void Update() {
-        if (experience >= expToNextLevel) {
+        if (experience >= expAtNextLevel) {
             LevelUp();
         }
     }
@@ -42,7 +42,7 @@ public class UniquePokemon : MonoBehaviour
     public void LevelUp() {
         active.SetCurrentHitPoints(active.GetCurrentHitPoints() - hitPoints);
         level++;
-        expToNextLevel = (level + 1) * (level + 1) * (level + 1);
+        expAtNextLevel = (level + 1) * (level + 1) * (level + 1);
         GenerateStats();
         active.SetCurrentHitPoints(active.GetCurrentHitPoints() + hitPoints);
         active.UpdateText();
@@ -57,7 +57,7 @@ public class UniquePokemon : MonoBehaviour
 
     public void CalculateCurrentExp() {
         experience = level * level * level;
-        expToNextLevel = (level + 1) * (level + 1) * (level + 1);
+        expAtNextLevel = (level + 1) * (level + 1) * (level + 1);
     }
 
     public int GenerateStat(int baseStatValue) {
@@ -85,6 +85,10 @@ public class UniquePokemon : MonoBehaviour
             CalculateCurrentExp();
         }
         initialised = true;
+    }
+
+    public int GetExpToNextLevel() {
+        return expAtNextLevel - experience;
     }
 
     public Pokemon GetPokemon() {
