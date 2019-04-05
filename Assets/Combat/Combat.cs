@@ -17,7 +17,10 @@ public class Combat : MonoBehaviour
     }
 
     void Update() {
-        count += Time.deltaTime;
+
+        if (!opponent.GetFainted()) {
+            count += Time.deltaTime;
+        }
         if (count > cooldown - playerSpeed * 4) {
             AttackTarget(player, opponent);
             count = 0;
