@@ -11,12 +11,9 @@ public class Combat : MonoBehaviour
 
     private float playerSpeed;
 
-    void Start() {
-        playerSpeed = (float)player.GetActive().GetSpeed();
-        playerSpeed /= 1000;
-    }
-
     void Update() {
+
+        playerSpeed = (float)player.GetActive().GetSpeed() / 1000;
 
         if (opponent.GetCurrentHitPoints() > 0) {
             count += Time.deltaTime;
