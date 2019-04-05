@@ -16,7 +16,6 @@ public class ActivePokemon : MonoBehaviour
     public SpawnPool currentRoute;
 
     public Animator anim;
-    private bool fainted = false;
 
     void Start() {
         if (player) {
@@ -31,12 +30,6 @@ public class ActivePokemon : MonoBehaviour
         healthText.text = currentHitPoints.ToString();
     }
 
-    private void Update() {
-        if (currentHitPoints <= 0) {
-            Faint();
-        }
-    }
-
     public void TakeDamage(int damage) {
         if (currentHitPoints - damage < 0) {
             currentHitPoints = 0;
@@ -47,7 +40,7 @@ public class ActivePokemon : MonoBehaviour
         UpdateText();
     }
 
-    private void UpdateText() {
+    public void UpdateText() {
         healthText.text = currentHitPoints.ToString();
     }
 
@@ -55,8 +48,7 @@ public class ActivePokemon : MonoBehaviour
         return active;
     }
 
-    private void Faint() {
-        fainted = true;
+    public void Faint() {
         anim.SetBool("Fainted", true);
     }
 
@@ -66,11 +58,18 @@ public class ActivePokemon : MonoBehaviour
         currentHitPoints = active.GetHitPoints();
         UpdateText();
         sprite.sprite = active.GetPokemon().GetSpriteFront();
-        fainted = false;
         anim.SetBool("Fainted", false);
     }
 
-    public bool GetFainted() {
-        return fainted;
+    public int GetCurrentHitPoints() {
+        return currentHitPoints;
+    }
+
+    public void SetCurrentHitPoints(int hitPoints) {
+        currentHitPoints = hitPoints;
+    }
+
+    public bool IsPlayer() {
+        return player;
     }
 }

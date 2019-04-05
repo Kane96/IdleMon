@@ -5,9 +5,14 @@ using UnityEngine;
 public class UniquePokemon : MonoBehaviour
 {
     public bool initialised;
+    public bool ownedByPlayer;
 
     public Pokemon pokemon;
+    private ActivePokemon active;
+
     public int level;
+    public int experience;
+    public int expToNextLevel;
 
     public int hitPoints;
     public int attack;
@@ -18,6 +23,41 @@ public class UniquePokemon : MonoBehaviour
         if (!initialised) {
             Initialise();
         }
+
+        if (ownedByPlayer) {
+            active = GameObject.Find("Active Pokemon Player").GetComponent<ActivePokemon>();
+        }
+    }
+
+    void Update() {
+        if (experience >= expToNextLevel) {
+            LevelUp();
+        }
+    }
+
+    public void GainExp(int exp) {
+        experience += exp;
+    }
+
+    public void LevelUp() {
+        active.SetCurrentHitPoints(active.GetCurrentHitPoints() - hitPoints);
+        level++;
+        expToNextLevel = (level + 1) * (level + 1) * (level + 1);
+        GenerateStats();
+        active.SetCurrentHitPoints(active.GetCurrentHitPoints() + hitPoints);
+        active.UpdateText();
+    }
+
+    public int CalculateExperienceReward() {
+        int exp = 0;
+        exp = 80 * level;
+        exp /= 7;
+        return exp;
+    }
+
+    public void CalculateCurrentExp() {
+        experience = level * level * level;
+        expToNextLevel = (level + 1) * (level + 1) * (level + 1);
     }
 
     public int GenerateStat(int baseStatValue) {
@@ -41,6 +81,9 @@ public class UniquePokemon : MonoBehaviour
 
     public void Initialise() {
         GenerateStats();
+        if (ownedByPlayer) {
+            CalculateCurrentExp();
+        }
         initialised = true;
     }
 

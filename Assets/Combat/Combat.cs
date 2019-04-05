@@ -18,7 +18,7 @@ public class Combat : MonoBehaviour
 
     void Update() {
 
-        if (!opponent.GetFainted()) {
+        if (opponent.GetCurrentHitPoints() > 0) {
             count += Time.deltaTime;
         }
         if (count > cooldown - playerSpeed * 4) {
@@ -37,6 +37,12 @@ public class Combat : MonoBehaviour
         int damage = CalculateDamage(attackerLevel, attackerAttackStat, targetDefenceStat);
 
         target.TakeDamage(damage);
+        if (target.GetCurrentHitPoints() == 0) {
+            target.Faint();
+            if (attacker.IsPlayer()) {
+                pokemonAttacker.GainExp(pokemonTarget.CalculateExperienceReward());
+            }
+        }
     }
 
     private int CalculateDamage(int attackerLevel, int attackerAttackStat, int targetDefenceStat) {
