@@ -6,6 +6,7 @@ public class Pokemon : MonoBehaviour
 {
     public Sprite spriteFront;
     public Sprite spriteBack;
+    public Sprite icon;
 
     public int baseHitPoints;
     public int baseAttack;
