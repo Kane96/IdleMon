@@ -10,7 +10,7 @@ public class TeamSlot : MonoBehaviour
 
     void Start() {
         pokemon = GetComponent<UniquePokemon>();
-        if (pokemon != null) {
+        if (pokemon.GetPokemon() != null) {
             sprite.sprite = pokemon.GetPokemon().GetIcon();
         }
     }
