@@ -6,6 +6,9 @@ public class TeamSlot : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public Sprite defaultSprite;
+    private BoxCollider2D box;
+
+    public ActivePokemon activePokemonPlayer;
     private UniquePokemon pokemon;
 
     void Start() {
@@ -13,10 +16,13 @@ public class TeamSlot : MonoBehaviour
         if (pokemon.GetPokemon() != null) {
             sprite.sprite = pokemon.GetPokemon().GetIcon();
         }
+
+        box = GetComponent<BoxCollider2D>();
     }
 
-    void Update()
-    {
-        
+    private void OnMouseDown() {
+        if (pokemon.GetPokemon() != null) {
+            activePokemonPlayer.SwapPokemon(pokemon);
+        }
     }
 }

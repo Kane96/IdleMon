@@ -78,4 +78,13 @@ public class ActivePokemon : MonoBehaviour
     public bool IsPlayer() {
         return player;
     }
+
+    public void SwapPokemon(UniquePokemon newPokemon) {
+        if (newPokemon != active) {
+            active = newPokemon;
+            currentHitPoints = active.GetHitPoints();
+            UpdateText();
+            sprite.sprite = active.GetPokemon().GetSpriteBack();
+        }
+    }
 }
