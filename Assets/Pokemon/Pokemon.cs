@@ -13,6 +13,10 @@ public class Pokemon : MonoBehaviour
     public int baseDefence;
     public int baseSpeed;
 
+    public Sprite GetIcon() {
+        return icon;
+    }
+
     public Sprite GetSpriteFront() {
         return spriteFront;
     }

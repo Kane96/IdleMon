@@ -20,18 +20,22 @@ public class UniquePokemon : MonoBehaviour
     public int speed;
 
     void Awake() {
-        if (!initialised) {
-            Initialise();
-        }
+        if (pokemon != null) {
+            if (!initialised) {
+                Initialise();
+            }
 
-        if (ownedByPlayer) {
-            active = GameObject.Find("Active Pokemon Player").GetComponent<ActivePokemon>();
+            if (ownedByPlayer) {
+                active = GameObject.Find("Active Pokemon Player").GetComponent<ActivePokemon>();
+            }
         }
     }
 
     void Update() {
-        if (experience >= expAtNextLevel) {
-            LevelUp();
+        if (pokemon != null) {
+            if (experience >= expAtNextLevel) {
+                LevelUp();
+            }
         }
     }
 
